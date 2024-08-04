@@ -1,0 +1,18 @@
+version: "3.1"
+
+services:
+  mysql:
+    image: mysql:latest
+    container_name: plura_mysql
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: ${LOCAL_MYSQL_ROOT_PASSWORD}
+      MYSQL_DATABASE: ${LOCAL_MYSQL_DATABASE}
+      MYSQL_USER: ${LOCAL_MYSQL_USER}
+      MYSQL_PASSWORD: ${LOCAL_MYSQL_PASSWORD}
+    volumes:
+      - my_mysql_data:/var/lib/mysql
+
+volumes:
+  my_mysql_data:
